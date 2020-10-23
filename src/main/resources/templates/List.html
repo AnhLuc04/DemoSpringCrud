@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form>
+    <label>
+        Search name :
+        <input type="text" name="s">
+    </label>
+    <input type="submit" value="Search">
+</form>
+<table>
+    <thead>
+    <tr>
+        <td>ID</td>
+        <td>NAME</td>
+        <td>PRICE</td>
+    </tr>
+    </thead>
+<tbody>
+    <tr th:each="product: ${product}">
+      <td th:text="${product.ID}"></td>
+      <td th:text="${product.name}"></td>
+      <td th:text="${product.price}"></td>
+        <td><a th:href="@{/product/delete/__${product.ID}__ }">Delete</a></td>
+    </tr>
+</tbody>
+</table>
+</body>
+</html>
